@@ -1,0 +1,50 @@
+<div>
+    <img title="aa" class="img-background" src="./assets/images/driver.webp">
+</div>
+<div style="text-align: center; width: 56%; font-size: 75px; position: absolute; top: 10%; left: 22%; ">
+    Your easiest way with best price
+</div>
+    <div class="form-container">
+        <form *ngIf="submit==0" class="form">
+                <div class="column">
+                    <!-- <label for="from" class="label row">From</label> -->
+                    <!-- <input id="from"  type="text" class="input row" data-type="text" placeholder="From"> -->
+                    <input (blur)="resetFrom()" class="input row" data-type="text" type="text" [(ngModel)]="input1" (input)="ff()" name="from"  id="from" placeholder="From" />
+                    <ul class="list row overflow-auto"></ul>
+                </div>
+                <div class="column">
+                    <!-- <label for="to" class="label row">From</label> -->
+                    <!-- <input id="to"  type="text" class="input row" data-type="text" placeholder="To"> -->
+                    <input (blur)="resetTo()" class="input row" data-type="text" type="text" [(ngModel)]="input2" (input)="to()" name="to"  id="to" placeholder="To" />
+                    <ul class="list1 row overflow-auto"></ul>
+                </div>
+                <div class="column">
+                    <!-- <label class="label row">Submit</label> -->
+                    <input (click)="onSubmit()" type="submit" class="btn btn-primary inputsubmit row" value="Find a driver">
+                </div>
+        </form>
+        <div *ngIf="submit==1" class="row" style="height: 100%;">
+            <div class="col col-8"> 
+                <div class="row" style="height: 50%; align-items: center;">
+                    <div  class="col-6" style="font-size: 30px; padding-left: 70px;">
+                        The distance is: <b>{{arr.distance_}} Km.</b>
+                    </div>
+                    <div  class="col-6" style="font-size: 30px;">
+                        The price of the trip is: <b>{{arr.price_}} LE.</b>
+                    </div>
+                </div>
+                <div class="row" style="height: 50%; align-items: center;">
+                    <div class="col-6" style="padding-left: 5%;">
+                        <input style="width: 95%; font-size: 22px;" type="submit" class="btn btn-primary" value="PayPal">
+                    </div>
+                    <div class="col-6">
+                        <input style="width: 95%; font-size: 22px;" type="submit" class="btn btn-primary" value="Cash">
+                    </div>
+                </div>
+            </div>
+            <div  class="col-4" style="height: 100%;">
+                <img style="height: 85%; width: 100%;" title="aa" src="./assets/images/UberX.webp">
+            </div>
+        </div>
+    </div>
+    

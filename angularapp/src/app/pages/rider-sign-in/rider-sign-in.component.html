@@ -1,0 +1,127 @@
+
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+
+<div class="login-box">
+	<div class="login-snip">
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Login</label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+		<div class="login-space">
+			<form [formGroup]="loginForm">
+			<div class="login">
+				<div class="group">
+					<label for="phone" class="label">Phone number</label>
+					<input formControlName="phone" [(ngModel)]="UserLogin.phone" id="phonelogin" type="tel"  class="input" placeholder="Enter your phone number">
+				</div>
+				<div *ngIf="loginphone!.invalid && (loginphone!.dirty || loginphone!.touched)" class="text-danger">
+					<div *ngIf="loginphone!.errors?.['required']">
+						phone number is required.
+					  </div>
+					  <div *ngIf="loginphone!.errors?.['pattern']">
+						phone must be 11 numbers
+					  </div>
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Password</label>
+					<input formControlName="password" [(ngModel)]="UserLogin.password" id="passlogin" type="password" class="input" data-type="password" placeholder="Enter your password">
+				</div>
+				<div *ngIf="loginpassword!.invalid && (loginpassword!.dirty || loginpassword!.touched)" class="text-danger">
+					<div *ngIf="loginpassword!.errors?.['required']">
+						password number is required.
+					  </div>
+					  <div *ngIf="loginpassword!.errors?.['minlength']">
+						password must be at least 8 characters long.
+					  </div>
+				</div>
+				<div class="group">
+					<input id="check" type="checkbox" class="check" checked>
+					<label for="check"><span class="icon"></span> Keep me Signed in</label>
+				</div>
+				<div class="group">
+					<input [disabled]="!loginForm.valid" (click)="onLogin()" type="submit" class="button" value="Sign In">
+				</div>
+				<div class="hr"></div>
+				<div class="foot">
+					<a href="#">Forgot Password?</a>
+				</div>
+			</div>
+		</form>
+			<form [formGroup]="registerForm">
+				<div class="sign-up-form">
+					<div class="group">
+						<label for="user" class="label">Username</label>
+						<input formControlName="username" id="user" [(ngModel)]="UserRegister.username" type="text" class="input" placeholder="Create your Username">
+					</div>
+						<div *ngIf="username!.invalid && (username!.dirty || username!.touched)" class="text-danger">
+							<div *ngIf="username!.errors?.['required']">
+								Name is required.
+							  </div>
+							  <div *ngIf="username!.errors?.['minlength']">
+								Name must be at least 2 characters long.
+							  </div>
+						</div>
+					<div class="group">
+						<label for="email" class="label">Email Address</label>
+						<input formControlName="email" id="email" [(ngModel)]="UserRegister.email" type="text" class="input" placeholder="Enter your email address">
+					</div>
+					<div *ngIf="email!.invalid && (email!.dirty || email!.touched)" class="text-danger">
+						<div *ngIf="email!.errors?.['required']">
+							email is required.
+						  </div>
+						  <div *ngIf="email!.errors?.['email']">
+							must be an email
+						  </div>
+					</div>
+					<div class="group">
+						<label for="phone" class="label">Phone number</label>
+						<input formControlName="phone" id="phone" [(ngModel)]="UserRegister.phone" type="text" class="input" placeholder="Enter your phone number">
+					</div>
+					<div *ngIf="phone!.invalid && (phone!.dirty || phone!.touched)" class="text-danger">
+						<div *ngIf="phone!.errors?.['required']">
+							phone number is required.
+						  </div>
+						  <div *ngIf="phone!.errors?.['pattern']">
+							phone must be 11 numbers
+						  </div>
+					</div>
+					<div class="group">
+						<label for="pass" class="label">Password</label>
+						<input formControlName="password" id="passsignup" [(ngModel)]="UserRegister.password" type="password" class="input" data-type="password" placeholder="Create your password">
+					</div>
+					<div *ngIf="password!.invalid && (password!.dirty || password!.touched)" class="text-danger">
+						<div *ngIf="password!.errors?.['required']">
+							password number is required.
+						  </div>
+						  <div *ngIf="password!.errors?.['minlength']">
+							password must be at least 8 characters long.
+						  </div>
+					</div>
+					<div class="group">
+						<label for="pass" class="label">Repeat Password</label>
+						<input formControlName="password1" id="passsignup" [(ngModel)]="UserRegister.password1" type="password" class="input" data-type="password" placeholder="Repeat your password">
+					</div>
+					<div *ngIf="password1!.invalid && (password1!.dirty || password1!.touched)" class="text-danger">
+						<div *ngIf="password1!.errors?.['required']">
+							password number is required.
+						  </div>
+						  <div *ngIf="password1!.errors?.['minlength']">
+							password must be at least 8 characters long.
+						  </div>
+					</div>
+					<div class="group">
+						<input [disabled]="!registerForm.valid" type="submit" (click)="onRegister()" class="button" value="Sign Up">
+					</div>
+					<!-- <div class="hr"></div>
+	<div class="foot">
+		<label for="tab-1">Already Member?</label>
+	</div> -->
+				</div>
+			</form>
+		</div>
+	</div>
+</div>   
+
+</body>
+
